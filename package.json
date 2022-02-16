@@ -1,6 +1,6 @@
 {
   "name": "@stdlib/math-base-special-minmax",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "Return the minimum and maximum values.",
   "license": "Apache-2.0",
   "author": {
