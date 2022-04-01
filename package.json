@@ -1,0 +1,35 @@
+{
+  "name": "@stdlib/math-base-special-minmax",
+  "version": "0.0.0",
+  "description": "Return the minimum and maximum values.",
+  "license": "Apache-2.0",
+  "main": "./bundle.js",
+  "homepage": "https://stdlib.io",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/stdlib-js/math-base-special-minmax.git"
+  },
+  "bugs": {
+    "url": "https://github.com/stdlib-js/stdlib/issues"
+  },
+  "keywords": [
+    "stdlib",
+    "stdmath",
+    "mathematics",
+    "math",
+    "math.min",
+    "math.max",
+    "minimum",
+    "maximum",
+    "extremum",
+    "min",
+    "max",
+    "smallest",
+    "largest",
+    "extrema"
+  ],
+  "funding": {
+    "type": "patreon",
+    "url": "https://www.patreon.com/athan"
+  }
+}
