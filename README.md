@@ -60,7 +60,7 @@ The [branches.md][branches-url] file summarizes the available branches and displ
 var minmax = require( '@stdlib/math-base-special-minmax' );
 ```
 
-#### minmax( \[out,] x\[, y\[, ...args]] )
+#### minmax( x\[, y\[, ...args]] )
 
 Returns the minimum and maximum values in a single pass.
 
@@ -85,14 +85,16 @@ v = minmax( NaN, 3.14 );
 // returns [ NaN, NaN ]
 ```
 
-By default, the function returns minimum and maximum values as a two-element `array`. To avoid unnecessary memory allocation, the function supports providing an output (destination) object.
+#### minmax.assign( x\[, y\[, ...args]], out, stride, offset )
+
+Returns the minimum and maximum values in a single pass and assigns results to a provided output array.
 
 ```javascript
 var Float64Array = require( '@stdlib/array-float64' );
 
 var out = new Float64Array( 2 );
 
-var v = minmax( out, 5.0, 3.0, -2.0, 1.0 );
+var v = minmax.assign( 5.0, 3.0, -2.0, 1.0, out, 1, 0 );
 // returns <Float64Array>[ -2.0, 5.0 ]
 
 var bool = ( v === out );
@@ -246,3 +248,4 @@ Copyright &copy; 2016-2022. The Stdlib [Authors][stdlib-authors].
 </section>
 
 <!-- /.links -->
+
