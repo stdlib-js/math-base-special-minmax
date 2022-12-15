@@ -60,7 +60,7 @@ The [branches.md][branches-url] file summarizes the available branches and displ
 var minmax = require( '@stdlib/math-base-special-minmax' );
 ```
 
-#### minmax( x\[, y\[, ...args]] )
+#### minmax( x, y )
 
 Returns the minimum and maximum values in a single pass.
 
@@ -70,9 +70,6 @@ var v = minmax( 4.2, 3.14 );
 
 v = minmax( +0.0, -0.0 );
 // returns [ -0.0, +0.0 ]
-
-v = minmax( 4.2, 3.14, -1.0, 6.8 );
-// returns [ -1.0, 6.8 ]
 ```
 
 If any argument is `NaN`, the function returns `NaN` for both the minimum value and the maximum value.
@@ -85,7 +82,7 @@ v = minmax( NaN, 3.14 );
 // returns [ NaN, NaN ]
 ```
 
-#### minmax.assign( x\[, y\[, ...args]], out, stride, offset )
+#### minmax.assign( x, y, out, stride, offset )
 
 Returns the minimum and maximum values in a single pass and assigns results to a provided output array.
 
@@ -94,7 +91,7 @@ var Float64Array = require( '@stdlib/array-float64' );
 
 var out = new Float64Array( 2 );
 
-var v = minmax.assign( 5.0, 3.0, -2.0, 1.0, out, 1, 0 );
+var v = minmax.assign( 5.0, -2.0, out, 1, 0 );
 // returns <Float64Array>[ -2.0, 5.0 ]
 
 var bool = ( v === out );
