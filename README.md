@@ -34,23 +34,33 @@ limitations under the License.
 
 <!-- Package usage documentation. -->
 
+<section class="installation">
 
+## Installation
+
+```bash
+npm install @stdlib/math-base-special-minmax
+```
+
+Alternatively,
+
+-   To load the package in a website via a `script` tag without installation and bundlers, use the [ES Module][es-module] available on the [`esm` branch][esm-url].
+-   If you are using Deno, visit the [`deno` branch][deno-url].
+-   For use in Observable, or in browser/node environments, use the [Universal Module Definition (UMD)][umd] build available on the [`umd` branch][umd-url].
+
+The [branches.md][branches-url] file summarizes the available branches and displays a diagram illustrating their relationships.
+
+</section>
 
 <section class="usage">
 
 ## Usage
 
 ```javascript
-import minmax from 'https://cdn.jsdelivr.net/gh/stdlib-js/math-base-special-minmax@esm/index.mjs';
+var minmax = require( '@stdlib/math-base-special-minmax' );
 ```
 
-You can also import the following named exports from the package:
-
-```javascript
-import { assign } from 'https://cdn.jsdelivr.net/gh/stdlib-js/math-base-special-minmax@esm/index.mjs';
-```
-
-#### minmax( x\[, y\[, ...args]] )
+#### minmax( x, y )
 
 Returns the minimum and maximum values in a single pass.
 
@@ -60,9 +70,6 @@ var v = minmax( 4.2, 3.14 );
 
 v = minmax( +0.0, -0.0 );
 // returns [ -0.0, +0.0 ]
-
-v = minmax( 4.2, 3.14, -1.0, 6.8 );
-// returns [ -1.0, 6.8 ]
 ```
 
 If any argument is `NaN`, the function returns `NaN` for both the minimum value and the maximum value.
@@ -75,16 +82,16 @@ v = minmax( NaN, 3.14 );
 // returns [ NaN, NaN ]
 ```
 
-#### minmax.assign( x\[, y\[, ...args]], out, stride, offset )
+#### minmax.assign( x, y, out, stride, offset )
 
 Returns the minimum and maximum values in a single pass and assigns results to a provided output array.
 
 ```javascript
-import Float64Array from 'https://cdn.jsdelivr.net/gh/stdlib-js/array-float64@esm/index.mjs';
+var Float64Array = require( '@stdlib/array-float64' );
 
 var out = new Float64Array( 2 );
 
-var v = minmax.assign( 5.0, 3.0, -2.0, 1.0, out, 1, 0 );
+var v = minmax.assign( 5.0, -2.0, out, 1, 0 );
 // returns <Float64Array>[ -2.0, 5.0 ]
 
 var bool = ( v === out );
@@ -111,14 +118,9 @@ var bool = ( v === out );
 
 <!-- eslint no-undef: "error" -->
 
-```html
-<!DOCTYPE html>
-<html lang="en">
-<body>
-<script type="module">
-
-import minstd from 'https://cdn.jsdelivr.net/gh/stdlib-js/random-base-minstd-shuffle@esm/index.mjs';
-import minmax from 'https://cdn.jsdelivr.net/gh/stdlib-js/math-base-special-minmax@esm/index.mjs';
+```javascript
+var minstd = require( '@stdlib/random-base-minstd-shuffle' );
+var minmax = require( '@stdlib/math-base-special-minmax' );
 
 var x;
 var y;
@@ -131,10 +133,6 @@ for ( i = 0; i < 100; i++ ) {
     v = minmax( x, y );
     console.log( 'minmax(%d,%d) = [%d, %d]', x, y, v[0], v[1] );
 }
-
-</script>
-</body>
-</html>
 ```
 
 </section>
@@ -174,7 +172,7 @@ for ( i = 0; i < 100; i++ ) {
 
 ## Notice
 
-This package is part of [stdlib][stdlib], a standard library with an emphasis on numerical and scientific computing. The library provides a collection of robust, high performance libraries for mathematics, statistics, streams, utilities, and more.
+This package is part of [stdlib][stdlib], a standard library for JavaScript and Node.js, with an emphasis on numerical and scientific computing. The library provides a collection of robust, high performance libraries for mathematics, statistics, streams, utilities, and more.
 
 For more information on the project, filing bug reports and feature requests, and guidance on how to develop [stdlib][stdlib], see the main project [repository][stdlib].
 
@@ -236,11 +234,11 @@ Copyright &copy; 2016-2022. The Stdlib [Authors][stdlib-authors].
 
 <!-- <related-links> -->
 
-[@stdlib/math/base/special/max]: https://github.com/stdlib-js/math-base-special-max/tree/esm
+[@stdlib/math/base/special/max]: https://github.com/stdlib-js/math-base-special-max
 
-[@stdlib/math/base/special/min]: https://github.com/stdlib-js/math-base-special-min/tree/esm
+[@stdlib/math/base/special/min]: https://github.com/stdlib-js/math-base-special-min
 
-[@stdlib/math/base/special/minmaxabs]: https://github.com/stdlib-js/math-base-special-minmaxabs/tree/esm
+[@stdlib/math/base/special/minmaxabs]: https://github.com/stdlib-js/math-base-special-minmaxabs
 
 <!-- </related-links> -->
 
