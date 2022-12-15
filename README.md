@@ -34,41 +34,33 @@ limitations under the License.
 
 <!-- Package usage documentation. -->
 
+<section class="installation">
 
+## Installation
+
+```bash
+npm install @stdlib/math-base-special-minmax
+```
+
+Alternatively,
+
+-   To load the package in a website via a `script` tag without installation and bundlers, use the [ES Module][es-module] available on the [`esm` branch][esm-url].
+-   If you are using Deno, visit the [`deno` branch][deno-url].
+-   For use in Observable, or in browser/node environments, use the [Universal Module Definition (UMD)][umd] build available on the [`umd` branch][umd-url].
+
+The [branches.md][branches-url] file summarizes the available branches and displays a diagram illustrating their relationships.
+
+</section>
 
 <section class="usage">
 
 ## Usage
 
-To use in Observable,
-
 ```javascript
-minmax = require( 'https://cdn.jsdelivr.net/gh/stdlib-js/math-base-special-minmax@umd/browser.js' )
+var minmax = require( '@stdlib/math-base-special-minmax' );
 ```
 
-To vendor stdlib functionality and avoid installing dependency trees for Node.js, you can use the UMD server build:
-
-```javascript
-var minmax = require( 'path/to/vendor/umd/math-base-special-minmax/index.js' )
-```
-
-To include the bundle in a webpage,
-
-```html
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/math-base-special-minmax@umd/browser.js"></script>
-```
-
-If no recognized module system is present, access bundle contents via the global scope:
-
-```html
-<script type="text/javascript">
-(function () {
-    window.minmax;
-})();
-</script>
-```
-
-#### minmax( x\[, y\[, ...args]] )
+#### minmax( x, y )
 
 Returns the minimum and maximum values in a single pass.
 
@@ -78,9 +70,6 @@ var v = minmax( 4.2, 3.14 );
 
 v = minmax( +0.0, -0.0 );
 // returns [ -0.0, +0.0 ]
-
-v = minmax( 4.2, 3.14, -1.0, 6.8 );
-// returns [ -1.0, 6.8 ]
 ```
 
 If any argument is `NaN`, the function returns `NaN` for both the minimum value and the maximum value.
@@ -93,7 +82,7 @@ v = minmax( NaN, 3.14 );
 // returns [ NaN, NaN ]
 ```
 
-#### minmax.assign( x\[, y\[, ...args]], out, stride, offset )
+#### minmax.assign( x, y, out, stride, offset )
 
 Returns the minimum and maximum values in a single pass and assigns results to a provided output array.
 
@@ -102,7 +91,7 @@ var Float64Array = require( '@stdlib/array-float64' );
 
 var out = new Float64Array( 2 );
 
-var v = minmax.assign( 5.0, 3.0, -2.0, 1.0, out, 1, 0 );
+var v = minmax.assign( 5.0, -2.0, out, 1, 0 );
 // returns <Float64Array>[ -2.0, 5.0 ]
 
 var bool = ( v === out );
@@ -129,14 +118,9 @@ var bool = ( v === out );
 
 <!-- eslint no-undef: "error" -->
 
-```html
-<!DOCTYPE html>
-<html lang="en">
-<body>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/random-base-minstd-shuffle@umd/browser.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/math-base-special-minmax@umd/browser.js"></script>
-<script type="text/javascript">
-(function () {
+```javascript
+var minstd = require( '@stdlib/random-base-minstd-shuffle' );
+var minmax = require( '@stdlib/math-base-special-minmax' );
 
 var x;
 var y;
@@ -149,11 +133,6 @@ for ( i = 0; i < 100; i++ ) {
     v = minmax( x, y );
     console.log( 'minmax(%d,%d) = [%d, %d]', x, y, v[0], v[1] );
 }
-
-})();
-</script>
-</body>
-</html>
 ```
 
 </section>
@@ -255,11 +234,11 @@ Copyright &copy; 2016-2022. The Stdlib [Authors][stdlib-authors].
 
 <!-- <related-links> -->
 
-[@stdlib/math/base/special/max]: https://github.com/stdlib-js/math-base-special-max/tree/umd
+[@stdlib/math/base/special/max]: https://github.com/stdlib-js/math-base-special-max
 
-[@stdlib/math/base/special/min]: https://github.com/stdlib-js/math-base-special-min/tree/umd
+[@stdlib/math/base/special/min]: https://github.com/stdlib-js/math-base-special-min
 
-[@stdlib/math/base/special/minmaxabs]: https://github.com/stdlib-js/math-base-special-minmaxabs/tree/umd
+[@stdlib/math/base/special/minmaxabs]: https://github.com/stdlib-js/math-base-special-minmaxabs
 
 <!-- </related-links> -->
 
