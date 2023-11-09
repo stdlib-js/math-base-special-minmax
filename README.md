@@ -256,4 +256,3 @@ Copyright &copy; 2016-2023. The Stdlib [Authors][stdlib-authors].
 </section>
 
 <!-- /.links -->
-
