@@ -4,7 +4,29 @@
 
 <section class="release" id="unreleased">
 
-## Unreleased (2025-03-29)
+## Unreleased (2025-05-19)
+
+<section class="features">
+
+### Features
+
+-   [`57b0e74`](https://github.com/stdlib-js/stdlib/commit/57b0e7428d3e8f21640e9fe6462a33c2b0881c48) - add C implementation for `math/base/special/minmax` [(#6296)](https://github.com/stdlib-js/stdlib/pull/6296)
+
+</section>
+
+<!-- /.features -->
+
+<section class="issues">
+
+### Closed Issues
+
+This release closes the following issue:
+
+[#2106](https://github.com/stdlib-js/stdlib/issues/2106)
+
+</section>
+
+<!-- /.issues -->
 
 <section class="commits">
 
@@ -12,6 +34,7 @@
 
 <details>
 
+-   [`57b0e74`](https://github.com/stdlib-js/stdlib/commit/57b0e7428d3e8f21640e9fe6462a33c2b0881c48) - **feat:** add C implementation for `math/base/special/minmax` [(#6296)](https://github.com/stdlib-js/stdlib/pull/6296) _(by Neeraj Pathak, Karan Anand)_
 -   [`c569d0f`](https://github.com/stdlib-js/stdlib/commit/c569d0ff888bc76a9980f5edb6e1c6f462d6e508) - **bench:** update random value generation [(#6380)](https://github.com/stdlib-js/stdlib/pull/6380) _(by Harsh, Philipp Burckhardt)_
 -   [`b89c97c`](https://github.com/stdlib-js/stdlib/commit/b89c97ce0b812ff0b2aab16b4d77969d44fe3e8c) - **docs:** resolve lint errors in TS declaration files _(by Philipp Burckhardt)_
 
@@ -25,9 +48,11 @@
 
 ### Contributors
 
-A total of 2 people contributed to this release. Thank you to the following contributors:
+A total of 4 people contributed to this release. Thank you to the following contributors:
 
 -   Harsh
+-   Karan Anand
+-   Neeraj Pathak
 -   Philipp Burckhardt
 
 </section>
