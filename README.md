@@ -45,25 +45,32 @@ limitations under the License.
 
 <!-- Package usage documentation. -->
 
+<section class="installation">
 
+## Installation
+
+```bash
+npm install @stdlib/math-base-special-minmax
+```
+
+Alternatively,
+
+-   To load the package in a website via a `script` tag without installation and bundlers, use the [ES Module][es-module] available on the [`esm`][esm-url] branch (see [README][esm-readme]).
+-   If you are using Deno, visit the [`deno`][deno-url] branch (see [README][deno-readme] for usage intructions).
+-   For use in Observable, or in browser/node environments, use the [Universal Module Definition (UMD)][umd] build available on the [`umd`][umd-url] branch (see [README][umd-readme]).
+
+The [branches.md][branches-url] file summarizes the available branches and displays a diagram illustrating their relationships.
+
+To view installation and usage instructions specific to each branch build, be sure to explicitly navigate to the respective README files on each branch, as linked to above.
+
+</section>
 
 <section class="usage">
 
 ## Usage
 
 ```javascript
-import minmax from 'https://cdn.jsdelivr.net/gh/stdlib-js/math-base-special-minmax@deno/mod.js';
-```
-The previous example will load the latest bundled code from the deno branch. Alternatively, you may load a specific version by loading the file from one of the [tagged bundles](https://github.com/stdlib-js/math-base-special-minmax/tags). For example,
-
-```javascript
-import minmax from 'https://cdn.jsdelivr.net/gh/stdlib-js/math-base-special-minmax@v0.3.0-deno/mod.js';
-```
-
-You can also import the following named exports from the package:
-
-```javascript
-import { assign } from 'https://cdn.jsdelivr.net/gh/stdlib-js/math-base-special-minmax@deno/mod.js';
+var minmax = require( '@stdlib/math-base-special-minmax' );
 ```
 
 #### minmax( x, y )
@@ -93,7 +100,7 @@ v = minmax( NaN, 3.14 );
 Returns the minimum and maximum values in a single pass and assigns results to a provided output array.
 
 ```javascript
-import Float64Array from 'https://cdn.jsdelivr.net/gh/stdlib-js/array-float64@deno/mod.js';
+var Float64Array = require( '@stdlib/array-float64' );
 
 var out = new Float64Array( 2 );
 
@@ -125,9 +132,9 @@ var bool = ( v === out );
 <!-- eslint no-undef: "error" -->
 
 ```javascript
-import logEachMap from 'https://cdn.jsdelivr.net/gh/stdlib-js/console-log-each-map@deno/mod.js';
-import discreteUniform from 'https://cdn.jsdelivr.net/gh/stdlib-js/random-array-discrete-uniform@deno/mod.js';
-import minmax from 'https://cdn.jsdelivr.net/gh/stdlib-js/math-base-special-minmax@deno/mod.js';
+var logEachMap = require( '@stdlib/console-log-each-map' );
+var discreteUniform = require( '@stdlib/random-array-discrete-uniform' );
+var minmax = require( '@stdlib/math-base-special-minmax' );
 
 var opts = {
     'dtype': 'float64'
@@ -144,7 +151,97 @@ logEachMap( 'minmax(%d, %d) = [%s]', x, y, minmax );
 
 <!-- C interface documentation. -->
 
+* * *
 
+<section class="c">
+
+## C APIs
+
+<!-- Section to include introductory text. Make sure to keep an empty line after the intro `section` element and another before the `/section` close. -->
+
+<section class="intro">
+
+</section>
+
+<!-- /.intro -->
+
+<!-- C usage documentation. -->
+
+<section class="usage">
+
+### Usage
+
+```c
+#include "stdlib/math/base/special/minmax.h"
+```
+
+#### stdlib_base_minmax( x, y, &min, &max )
+
+Evaluates the minimum and maximum values in a single pass.
+
+```c
+double x = 3.14;
+double y = 2.71;
+
+double min;
+double max;
+stdlib_base_minmax( x, y, &min, &max );
+```
+
+The function accepts the following arguments:
+
+-   **x**: `[in] double` first number.
+-   **y**: `[in] double` second number.
+-   **min**: `[out] double` destination for the minimum value.
+-   **max**: `[out] double` destination for the maximum value.
+
+```c
+void stdlib_base_minmax( const double x, const double y, double* min, double* max );
+```
+
+</section>
+
+<!-- /.usage -->
+
+<!-- C API usage notes. Make sure to keep an empty line after the `section` element and another before the `/section` close. -->
+
+<section class="notes">
+
+</section>
+
+<!-- /.notes -->
+
+<!-- C API usage examples. -->
+
+<section class="examples">
+
+### Examples
+
+```c
+#include "stdlib/math/base/special/minmax.h"
+#include <stdio.h>
+
+int main( void ) {
+    const double x[] = { 1.0, 0.45, -0.89, 0.0 / 0.0, -0.78, -0.22, 0.66, 0.11, -0.55, 0.0 };
+    const double y[] = { -0.22, 0.66, 0.0, -0.55, 0.33, 1.0, 0.0 / 0.0, 0.11, 0.45, -0.78 };
+
+    double min;
+    double max;
+    int i;
+    for ( i = 0; i < 10; i++ ) {
+        stdlib_base_minmax( x[ i ], y[ i ], &min, &max );
+        printf( "x: %lf, y: %lf => min: %lf, max: %lf\n", x[ i ], y[ i ], min, max );
+    }
+}
+```
+
+</section>
+
+<!-- /.examples -->
+
+</section>
+
+<!-- /.c -->
 
 <!-- Section to include cited references. If references are included, add a horizontal rule *before* the section. Make sure to keep an empty line after the `section` element and another before the `/section` close. -->
 
@@ -179,7 +276,7 @@ logEachMap( 'minmax(%d, %d) = [%s]', x, y, minmax );
 
 ## Notice
 
-This package is part of [stdlib][stdlib], a standard library with an emphasis on numerical and scientific computing. The library provides a collection of robust, high performance libraries for mathematics, statistics, streams, utilities, and more.
+This package is part of [stdlib][stdlib], a standard library for JavaScript and Node.js, with an emphasis on numerical and scientific computing. The library provides a collection of robust, high performance libraries for mathematics, statistics, streams, utilities, and more.
 
 For more information on the project, filing bug reports and feature requests, and guidance on how to develop [stdlib][stdlib], see the main project [repository][stdlib].
 
@@ -209,8 +306,8 @@ Copyright &copy; 2016-2026. The Stdlib [Authors][stdlib-authors].
 [npm-image]: http://img.shields.io/npm/v/@stdlib/math-base-special-minmax.svg
 [npm-url]: https://npmjs.org/package/@stdlib/math-base-special-minmax
 
-[test-image]: https://github.com/stdlib-js/math-base-special-minmax/actions/workflows/test.yml/badge.svg?branch=v0.3.0
-[test-url]: https://github.com/stdlib-js/math-base-special-minmax/actions/workflows/test.yml?query=branch:v0.3.0
+[test-image]: https://github.com/stdlib-js/math-base-special-minmax/actions/workflows/test.yml/badge.svg?branch=v0.3.1
+[test-url]: https://github.com/stdlib-js/math-base-special-minmax/actions/workflows/test.yml?query=branch:v0.3.1
 
 [coverage-image]: https://img.shields.io/codecov/c/github/stdlib-js/math-base-special-minmax/main.svg
 [coverage-url]: https://codecov.io/github/stdlib-js/math-base-special-minmax?branch=main
@@ -244,11 +341,11 @@ Copyright &copy; 2016-2026. The Stdlib [Authors][stdlib-authors].
 
 <!-- <related-links> -->
 
-[@stdlib/math/base/special/max]: https://github.com/stdlib-js/math-base-special-max/tree/deno
+[@stdlib/math/base/special/max]: https://github.com/stdlib-js/math-base-special-max
 
-[@stdlib/math/base/special/min]: https://github.com/stdlib-js/math-base-special-min/tree/deno
+[@stdlib/math/base/special/min]: https://github.com/stdlib-js/math-base-special-min
 
-[@stdlib/math/base/special/minmaxabs]: https://github.com/stdlib-js/math-base-special-minmaxabs/tree/deno
+[@stdlib/math/base/special/minmaxabs]: https://github.com/stdlib-js/math-base-special-minmaxabs
 
 <!-- </related-links> -->
 
